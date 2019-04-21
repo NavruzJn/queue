@@ -20,15 +20,15 @@ app.on('error', function(err){
 });
 
 router.get('/', indexController.index);
-router.post('/user', userController.create());
-router.post('/user/:id', userController.update());
-router.delete('/user/:id', userController.getList());
-router.post('/host', hostController.create());
-router.delete('/host/:id', hostController.delete());
-router.post('/host/hostSpec/:id', hostController.updateSpec());
-router.post('/account', accountController.create());
-router.post('/account/:id', accountController.updateSpec());
-router.delete('/account/:id', accountController.delete());
+router.post('/user', userController.create);
+router.post('/user/:id', userController.update);
+router.delete('/user/:id', userController.getList);
+router.post('/host', hostController.create);
+router.delete('/host/:id', hostController.delete);
+router.post('/host/hostSpec/:id', hostController.updateSpec);
+router.post('/account', accountController.create);
+router.post('/account/:id', accountController.updateSpec);
+router.delete('/account/:id', accountController.delete);
 router.post('/task', async (ctx, next) => {
     await tasks.create(ctx.request.body, (err) => {
         if (err) {
